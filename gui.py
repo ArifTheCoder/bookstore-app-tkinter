@@ -3,18 +3,22 @@ import backend
 
 
 def get_selected_row(event):
-    global selected_tuple
-    index = list1.curselection()[0]
-    selected_tuple = list1.get(index)
+    try:
+        global selected_tuple
+        index = list1.curselection()[0]
+        selected_tuple = list1.get(index)
 
-    entry_title.delete(0, END)
-    entry_title.insert(END, selected_tuple[1])
-    entry_author.delete(0, END)
-    entry_author.insert(END, selected_tuple[2])
-    entry_year.delete(0, END)
-    entry_year.insert(END, selected_tuple[3])
-    entry_ISBN.delete(0, END)
-    entry_ISBN.insert(END, selected_tuple[4])
+        entry_title.delete(0, END)
+        entry_title.insert(END, selected_tuple[1])
+        entry_author.delete(0, END)
+        entry_author.insert(END, selected_tuple[2])
+        entry_year.delete(0, END)
+        entry_year.insert(END, selected_tuple[3])
+        entry_ISBN.delete(0, END)
+        entry_ISBN.insert(END, selected_tuple[4])
+
+    except IndexError:
+        pass
 
 
 # view
